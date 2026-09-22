@@ -1,6 +1,6 @@
 @import url("https://raw.githubusercontent.com/canlashaze/canlashaze.github.io/1edce27b99041b5396bd5e2a48cf8029c8c0f0d0/css/styles.css");
 
-/* Load the photo from the active portfolio deployment and keep it inside the circle. */
+/* Use the uploaded profile.jpg from the root of this repository. */
 .hero-avatar {
     width: 220px;
     height: 220px;
@@ -17,7 +17,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    content: url("https://canlashaze.github.io/portfolio/assets/profile.jpg");
+    content: url("../profile.jpg");
 }
 
 @media (max-width: 600px) {
