@@ -1,20 +1,335 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0f172a"><meta name="description" content="Hazel Canlas — Sales, Operations, Growth, and Dispatch professional.">
-<title>Hazel Canlas | Sales • Operations • Growth • Dispatch</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20260922-4">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Hazel Canlas — Sales, Operations, Growth, and Dispatch professional.">
+  <title>Hazel Canlas | Sales • Operations • Growth • Dispatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-secondary: #1a2332;
+      --primary: #14b8a6;
+      --primary-dark: #0d9488;
+      --secondary: #0891b2;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --border: rgba(148, 163, 184, 0.22);
+      --card-bg: rgba(15, 23, 42, 0.88);
+      --shadow: rgba(0, 0, 0, 0.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+    .navbar { position: sticky; top: 0; z-index: 20; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-container { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo a { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.04em; }
+    .nav-menu { list-style: none; display: flex; gap: 1.1rem; margin: 0; padding: 0; }
+    .nav-link { color: var(--muted); font-weight: 500; }
+    .nav-link:hover { color: var(--primary); }
+    .hero { padding: 6rem 0 3rem; }
+    .hero-content { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 2rem; align-items: center; }
+    .hero-title { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.02; margin: 0 0 1rem; letter-spacing: -0.05em; }
+    .hero-description { font-size: 1.08rem; color: var(--muted); max-width: 62ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: .9rem 1.3rem; border-radius: 999px; font-weight: 700; transition: .2s ease; }
+    .btn-primary { background: var(--primary); color: #05242d; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { border: 1px solid var(--border); background: transparent; color: var(--text); }
+    .btn-secondary:hover { border-color: rgba(20,184,166,0.7); }
+    .socials { display: flex; gap: .9rem; margin-top: 1.2rem; }
+    .social-link { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .hero-visual { display: flex; justify-content: center; }
+    .avatar-box { width: min(100%, 420px); padding: 1rem; border-radius: 1.5rem; background: linear-gradient(135deg, rgba(20,184,166,0.18), rgba(8,145,178,0.12)); border: 1px solid var(--border); box-shadow: 0 24px 60px var(--shadow); }
+    .avatar-box img { width: 100%; border-radius: 1rem; }
+    .section { padding: 5rem 0; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 2rem; letter-spacing: -0.04em; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: start; }
+    .about-text p { color: var(--muted); font-size: 1.02rem; }
+    .stats { display: grid; grid-template-columns: repeat(2, minmax(160px, 1fr)); gap: 1rem; }
+    .stat { padding: 1.2rem; border-radius: 1rem; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
+    .stat-label { color: var(--muted); }
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+    .expertise-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 1rem; padding: 1.3rem; }
+    .expertise-card h3 { margin: .6rem 0; font-size: 1.15rem; }
+    .expertise-card p { margin: 0; color: var(--muted); }
+    .expertise-card ul { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    .timeline { display: grid; gap: 1.2rem; }
+    .timeline-item { display: grid; grid-template-columns: 18px 1fr; gap: 1rem; }
+    .timeline-marker { width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-top: .3rem; }
+    .timeline-content { border: 1px solid var(--border); background: rgba(255,255,255,0.02); border-radius: 1rem; padding: 1.2rem 1.3rem; }
+    .timeline-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+    .timeline-header h3 { margin: 0; }
+    .timeline-date { color: var(--primary); font-size: .9rem; font-weight: 700; }
+    .timeline-company { margin: .25rem 0 .8rem; color: var(--muted); font-weight: 600; }
+    .timeline-content p { margin: 0; color: var(--muted); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+    .project-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 1rem; padding: 1.2rem; }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .7rem; }
+    .project-header h3 { margin: 0; font-size: 1.25rem; }
+    .project-tag { display: inline-block; padding: .3rem .7rem; background: rgba(20,184,166,0.12); border-radius: 999px; color: var(--primary); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .project-card p { color: var(--muted); margin: .5rem 0 1rem; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .tool-badge { display: inline-block; background: rgba(148,163,184,0.1); border: 1px solid rgba(148,163,184,0.2); border-radius: 999px; padding: .35rem .65rem; font-size: .72rem; color: var(--text); }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, minmax(190px, 1fr)); gap: 1rem; }
+    .contact-card { border: 1px solid var(--border); background: rgba(255,255,255,0.02); border-radius: 1rem; padding: 1.2rem; }
+    .contact-card h3 { margin-top: 0; }
+    .contact-card a { color: var(--primary); }
+    .footer { border-top: 1px solid var(--border); padding: 1.5rem 0 3rem; }
+    .footer-copy { color: var(--soft); text-align: center; }
+    @media (max-width: 820px) {
+      .hero-content, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+      .hero { padding-top: 4rem; }
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><div class="nav-logo"><a href="#home">Hazel Canlas</a></div><ul class="nav-menu"><li><a class="nav-link" href="#about">About</a></li><li><a class="nav-link" href="#expertise">Expertise</a></li><li><a class="nav-link" href="#experience">Experience</a></li><li><a class="nav-link" href="#projects">Projects</a></li><li><a class="nav-link cta-link" href="#contact">Contact</a></li></ul><div class="hamburger"><span></span><span></span><span></span></div></div></nav>
-<main>
-<section id="home" class="hero"><div class="hero-content"><div class="hero-text"><h1 class="hero-title">SALES • OPERATIONS<br>GROWTH • DISPATCH</h1><p class="hero-description">I specialize in <strong>sales, operations, growth, and dispatch</strong>. With a strong background in team coordination, customer experience, workflow improvement, and service operations, I help businesses improve performance and scale with confidence.</p><div class="hero-cta"><a class="btn btn-primary" href="#projects">View My Work</a><a class="btn btn-secondary" href="Hazel_Canlas_Resume.docx" download>Download Resume</a></div><div class="hero-links"><a class="social-link" href="mailto:canlashazel4@gmail.com">✉</a><a class="social-link" href="https://linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener">in</a><a class="social-link" href="tel:+639556450307">☎</a></div></div><div class="hero-visual"><div class="hero-avatar"><img class="profile-image" src="profile.jpg" alt="Hazel Canlas"></div></div></div><div class="hero-scroll"><span>Scroll to explore</span><span>⌄</span></div></section>
-<section id="about" class="about"><div class="container"><h2 class="section-title">About Me</h2><div class="about-content"><div class="about-text"><p>I'm a <strong>sales and operations professional</strong> with a strong track record in <strong>customer engagement, operational execution, and growth strategy</strong>. My experience spans team coordination, process improvement, service support, and business development.</p><p><strong>My Focus</strong><br>I work with businesses that need better structure, stronger process flow, and clearer operational performance. I enjoy turning fragmented workflows into smooth, scalable systems.</p><p><strong>My Expertise</strong><br>I support sales operations, dispatch coordination, customer communication, and day-to-day execution in fast-moving service environments.</p><p>I'm a <strong>results-driven professional</strong> who values clarity, consistency, and performance.</p></div><div class="about-stats"><div class="stat"><div class="stat-number">7+</div><div class="stat-label">Years Experience</div></div><div class="stat"><div class="stat-number">3.5+</div><div class="stat-label">Service Expertise</div></div><div class="stat"><div class="stat-number">10+</div><div class="stat-label">Teams Supported</div></div><div class="stat"><div class="stat-number">150+</div><div class="stat-label">Customer Touchpoints</div></div></div></div></div></section>
-<section id="expertise" class="expertise"><div class="container"><h2 class="section-title">Core Expertise</h2><div class="expertise-grid"><article class="expertise-card"><div class="expertise-icon">📍</div><h3>Dispatch Coordination</h3><p>Managing service schedules, field coordination, and customer communication in fast-paced environments.</p><ul class="expertise-list"><li>Daily dispatch support</li><li>Real-time coordination</li><li>Route alignment</li><li>Workflow improvement</li></ul></article><article class="expertise-card"><div class="expertise-icon">🏠</div><h3>Home Services Operations</h3><p>Hands-on experience supporting service operations and customer-facing home service teams.</p><ul class="expertise-list"><li>Service coordination</li><li>Job scheduling</li><li>Customer support</li><li>Operational oversight</li></ul></article><article class="expertise-card"><div class="expertise-icon">📞</div><h3>Customer Communication</h3><p>Professional phone, email, SMS, and messaging communication for service and sales teams.</p></article><article class="expertise-card"><div class="expertise-icon">🛠️</div><h3>Field Service Platforms</h3><p>ServiceM8, Service Autopilot, Salesforce, Fleetio, and Samsara.</p></article><article class="expertise-card"><div class="expertise-icon">⚙️</div><h3>Process Automation</h3><p>Identifying inefficiencies and implementing clearer systems and improved operational flow.</p></article><article class="expertise-card"><div class="expertise-icon">📊</div><h3>Operations Management</h3><p>Creating structure, checklists, and repeatable systems for better day-to-day performance.</p></article></div></div></section>
-<section id="experience" class="experience"><div class="container"><h2 class="section-title">Professional Experience</h2><div class="timeline"><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Dispatch &amp; Senior Operations Coordinator</h3><span class="timeline-date">July 2024 – August 2026</span></div><p class="timeline-company">Viking Tree Experts Inc. &amp; Viking Washers</p><p class="timeline-description">Led daily dispatch, scheduling, and operational coordination for U.S.-based home service businesses.</p><ul class="timeline-achievements"><li>Coordinated technicians and monthly jobs</li><li>Managed complex appointment scheduling</li><li>Improved operational consistency with SOPs</li></ul></div></article><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Account Specialist</h3><span class="timeline-date">January 2023 – July 2024</span></div><p class="timeline-company">Viking Tree Experts Inc.</p><p class="timeline-description">Managed customer accounts and coordinated internal teams for service delivery.</p></div></article><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Travel Consultant</h3><span class="timeline-date">January 2021 – January 2023</span></div><p class="timeline-company">dnata Travel Inc. / Emirates Group</p><p class="timeline-description">Coordinated travel arrangements and managed high-volume customer inquiries.</p></div></article></div></div></section>
-<section id="projects" class="projects"><div class="container"><h2 class="section-title">Notable Projects &amp; Achievements</h2><div class="projects-grid"><article class="project-card"><div class="project-header"><h3 class="project-title">Dispatch System Optimization</h3><span class="project-tag">Dispatch</span></div><p class="project-description">Built and optimized workflows for field technicians and monthly service jobs.</p><div class="project-tools"><span class="tool-badge">ServiceM8</span><span class="tool-badge">Fleetio</span><span class="tool-badge">Samsara</span></div></article><article class="project-card"><div class="project-header"><h3 class="project-title">Operations SOP Documentation</h3><span class="project-tag">Operations</span></div><p class="project-description">Created SOPs for service operations and internal workflow consistency.</p><div class="project-tools"><span class="tool-badge">Notion</span><span class="tool-badge">Google Workspace</span></div></article><article class="project-card"><div class="project-header"><h3 class="project-title">Customer Communication Automation</h3><span class="project-tag">Automation</span></div><p class="project-description">Implemented confirmations, updates, and follow-up sequences for better service experience.</p><div class="project-tools"><span class="tool-badge">SMS</span><span class="tool-badge">Email</span></div></article></div></div></section>
-<section id="contact" class="contact"><div class="container"><h2 class="section-title">Let's Connect</h2><p class="contact-subtitle">I'm actively looking for remote opportunities with <strong>U.S.-based and AU-based home service companies</strong> and operations teams.</p><div class="contact-grid"><article class="contact-card"><h3>📧 Email</h3><p class="contact-value"><a href="mailto:canlashazel4@gmail.com">canlashazel4@gmail.com</a></p></article><article class="contact-card"><h3>🔗 LinkedIn</h3><p class="contact-value"><a href="https://linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener">Connect with Me</a></p></article><article class="contact-card"><h3>☎️ Phone</h3><p class="contact-value"><a href="tel:+639556450307">+63 955 645 0307</a></p></article></div><div class="contact-cta"><p>Ready to work together?</p><a class="btn btn-primary" href="Hazel_Canlas_Resume.docx" download>Download Resume</a></div></div></section>
-</main><footer class="footer"><div class="container"><div class="footer-bottom">© 2026 Hazel Canlas. All rights reserved.</div></div></footer><script src="js/script.js?v=20260922-2"></script>
-</body></html>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><a href="#home">Hazel Canlas</a></div>
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#expertise">Expertise</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div>
+          <h1 class="hero-title">SALES • OPERATIONS<br>GROWTH • DISPATCH</h1>
+          <p class="hero-description">I specialize in sales, operations, growth, and dispatch. With a strong background in team coordination, customer experience, workflow improvement, and service operations, I help businesses improve performance and scale with confidence.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View My Work</a>
+            <a class="btn btn-secondary" href="Hazel_Canlas_Resume.docx" download>Download Resume</a>
+          </div>
+          <div class="socials">
+            <a class="social-link" href="mailto:canlashazel4@gmail.com" aria-label="Email">✉</a>
+            <a class="social-link" href="https://www.linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a class="social-link" href="tel:+6395556450307" aria-label="Phone">☎</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="avatar-box">
+            <img src="profile.jpg" alt="Hazel Canlas">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 class="section-title">About Me</h2>
+          <p>I’m a sales and operations professional with a strong track record in customer engagement, operational execution, and growth strategy. My experience spans team coordination, process improvement, service support, and business development.</p>
+          <p><strong>My focus:</strong> I work with businesses that need better structure, stronger process flow, and clearer operational performance. I enjoy turning fragmented workflows into smooth, scalable systems.</p>
+          <p><strong>My expertise:</strong> I support sales operations, dispatch coordination, customer communication, and day-to-day execution in fast-moving service environments.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="stat-number">7+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-number">3.5+</div><div class="stat-label">Service Expertise</div></div>
+          <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Teams Supported</div></div>
+          <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Customer Touchpoints</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="section">
+      <div class="container">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <div>📦</div>
+            <h3>Dispatch Coordination</h3>
+            <p>Managing service schedulers, field coordination, and customer communication in fast-paced environments.</p>
+            <ul>
+              <li>Daily dispatch support</li>
+              <li>Real-time coordination</li>
+              <li>Route alignment</li>
+            </ul>
+          </article>
+          <article class="expertise-card">
+            <div>🏠</div>
+            <h3>Home Services Operations</h3>
+            <p>Hands-on experience supporting service operations and customer-facing home service teams.</p>
+            <ul>
+              <li>Service coordination</li>
+              <li>Job scheduling</li>
+              <li>Customer support</li>
+            </ul>
+          </article>
+          <article class="expertise-card">
+            <div>💬</div>
+            <h3>Customer Communication</h3>
+            <p>Professional phone, email, SMS, and messaging communication for service and sales teams.</p>
+          </article>
+          <article class="expertise-card">
+            <div>🧭</div>
+            <h3>Field Service Platforms</h3>
+            <p>ServiceM8, Service Autopilot, Salesforce, Fleetio, and Samsara.</p>
+          </article>
+          <article class="expertise-card">
+            <div>⚙️</div>
+            <h3>Process Automation</h3>
+            <p>Identifying inefficiencies and implementing clearer systems and improved operational flow.</p>
+          </article>
+          <article class="expertise-card">
+            <div>📈</div>
+            <h3>Operations Management</h3>
+            <p>Creating structure, checklists, and repeatable systems for better day-to-day performance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Dispatch &amp; Senior Operations Coordinator</h3>
+                <span class="timeline-date">July 2024 – August 2026</span>
+              </div>
+              <div class="timeline-company">Viking Tree Experts Inc. &amp; Viking Washers</div>
+              <p>Led daily dispatch, scheduling, and operational coordination for U.S.-based home service businesses.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Account Specialist</h3>
+                <span class="timeline-date">January 2023 – July 2024</span>
+              </div>
+              <div class="timeline-company">Viking Tree Experts Inc.</div>
+              <p>Managed customer accounts and coordinated internal teams for service delivery.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Travel Consultant</h3>
+                <span class="timeline-date">January 2021 – January 2023</span>
+              </div>
+              <div class="timeline-company">dnata Travel Inc. / Emirates Group</div>
+              <p>Coordinated travel arrangements and managed high-volume customer inquiries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Notable Projects &amp; Achievements</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Dispatch System Optimization</h3>
+              <span class="project-tag">Dispatch</span>
+            </div>
+            <p>Built and optimized workflows for field technicians and monthly service jobs.</p>
+            <div class="tool-list">
+              <span class="tool-badge">ServiceM8</span>
+              <span class="tool-badge">Fleetio</span>
+              <span class="tool-badge">Samsara</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Operations SOP Documentation</h3>
+              <span class="project-tag">Operations</span>
+            </div>
+            <p>Created SOPs for service operations and internal workflow consistency.</p>
+            <div class="tool-list">
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">Google Workspace</span>
+              <span class="tool-badge">NotebookLM</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Customer Communication Automation</h3>
+              <span class="project-tag">Automation</span>
+            </div>
+            <p>Implemented confirmations, updates, follow-up sequences, and quality control messaging.</p>
+            <div class="tool-list">
+              <span class="tool-badge">SMS</span>
+              <span class="tool-badge">Email</span>
+              <span class="tool-badge">Claude AI</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Tools behind the work</h3>
+              <span class="project-tag">Workflow</span>
+            </div>
+            <p>Practical systems for SOPs, sales enablement, local visibility, web presence, marketing, and high-volume CRM follow-up.</p>
+            <div class="tool-list">
+              <span class="tool-badge">NotebookLM</span>
+              <span class="tool-badge">Claude AI</span>
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">Google Business Profile</span>
+              <span class="tool-badge">Wix</span>
+              <span class="tool-badge">Canva</span>
+              <span class="tool-badge">Social posting</span>
+              <span class="tool-badge">Salesforce</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Let’s Connect</h2>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>✉ Email</h3>
+            <a href="mailto:canlashazel4@gmail.com">canlashazel4@gmail.com</a>
+          </article>
+          <article class="contact-card">
+            <h3>in LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener">Connect with Me</a>
+          </article>
+          <article class="contact-card">
+            <h3>☎ Phone</h3>
+            <a href="tel:+6395556450307">+63 955 645 0307</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-copy">© 2026 Hazel Canlas. All rights reserved.</div>
+  </footer>
+</body>
+</html>
