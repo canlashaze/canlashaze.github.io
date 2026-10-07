@@ -10,58 +10,764 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0f172a;--panel:#172235;--teal:#14b8a6;--cyan:#0891b2;--text:#e2e8f0;--muted:#cbd5e1;--soft:#94a3b8;--line:rgba(148,163,184,.22)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:auto;padding:0 1.25rem}.navbar{position:sticky;top:0;z-index:5;background:rgba(15,23,42,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav-container{max-width:1120px;margin:auto;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center}.nav-logo{font-weight:800;letter-spacing:.03em}.nav-menu{display:flex;gap:1.15rem;list-style:none;margin:0;padding:0}.nav-link{color:var(--muted);font-size:.9rem}.nav-link:hover{color:var(--teal)}.hero{padding:6.2rem 0 4rem}.hero-content{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center}.eyebrow{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.04;letter-spacing:-.06em;margin:.7rem 0 1.1rem}.hero-description{font-size:1.12rem;color:var(--muted);max-width:64ch}.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.5rem}.btn{padding:.85rem 1.2rem;border-radius:999px;font-weight:700}.btn-primary{background:var(--teal);color:#062b32}.btn-secondary{border:1px solid var(--line);color:var(--text)}.btn-secondary:hover{border-color:var(--teal)}.roles{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}.role-pill{display:inline-block;padding:.38rem .72rem;border-radius:999px;background:rgba(148,163,184,.08);border:1px solid var(--line);color:var(--muted);font-size:.76rem}.avatar-box{padding:1rem;border-radius:1.5rem;background:linear-gradient(135deg,rgba(20,184,166,.18),rgba(8,145,178,.12));border:1px solid var(--line)}.avatar-box img{width:100%;border-radius:1rem}.section{padding:4.4rem 0}.section-title{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:0 0 1.7rem}.lead,.about-text p{color:var(--muted);font-size:1.03rem}.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.stat,.card,.timeline-content,.project-card,.contact-card,.cta-box{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:1rem;padding:1.25rem}.stat-number{font-size:2rem;font-weight:800;color:var(--teal)}.stat-label{color:var(--muted);font-size:.9rem}.expertise-grid,.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1.2rem}.card h3,.project-card h3,.contact-card h3{margin:.45rem 0 .6rem}.card p,.project-card p,.contact-card p{color:var(--muted);margin:0}.card ul{padding-left:1.2rem;color:var(--muted)}.timeline{display:grid;gap:1.1rem}.timeline-item{display:grid;grid-template-columns:16px 1fr;gap:1rem}.timeline-marker{width:16px;height:16px;border-radius:50%;margin-top:1.4rem;background:linear-gradient(135deg,var(--teal),var(--cyan))}.timeline-header{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.timeline-header h3{margin:0}.timeline-date{color:var(--teal);font-size:.85rem;font-weight:700}.company{color:var(--muted);font-weight:600;margin:.2rem 0 .7rem}.project-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem}.project-tag{display:inline-block;color:var(--teal);background:rgba(20,184,166,.12);padding:.3rem .6rem;border-radius:999px;white-space:nowrap;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.tool-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tool-badge{color:var(--text);background:rgba(148,163,184,.1);border:1px solid var(--line);border-radius:999px;padding:.34rem .62rem;font-size:.72rem}.tools-note{margin:1.8rem 0 0;padding:1rem 1.2rem;border-left:3px solid var(--teal);background:rgba(20,184,166,.07);color:var(--muted)}.cta-box{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.contact-card a{color:var(--teal)}.footer{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--soft);text-align:center}@media(max-width:800px){.nav-menu{display:none}.hero-content,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:4rem}.cta-box{display:block}}
+    :root {
+      --bg: #0f172a;
+      --panel: #172235;
+      --teal: #14b8a6;
+      --cyan: #0891b2;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --line: rgba(148,163,184,.22);
+      --white: #ffffff;
+      --black: #0b1220;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo { font-weight: 800; letter-spacing: .02em; }
+    .nav-menu {
+      display: flex;
+      gap: 1.15rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-link {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .nav-link:hover { color: var(--teal); }
+
+    .hero {
+      padding: 2.2rem 0 4rem;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .eyebrow {
+      color: var(--teal);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -.06em;
+      margin: .7rem 0 1.1rem;
+    }
+    .hero-description {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+      margin-top: 1.5rem;
+    }
+    .btn {
+      padding: .85rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      display: inline-block;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: #062b32;
+    }
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1.4rem;
+    }
+    .role-pill {
+      display: inline-block;
+      padding: .38rem .72rem;
+      border-radius: 999px;
+      background: rgba(148,163,184,.08);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    .avatar-box {
+      padding: 1rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(20,184,166,.18), rgba(8,145,178,.12));
+      border: 1px solid var(--line);
+    }
+    .avatar-box img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    .section { padding: 4rem 0; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      margin: 0 0 1.3rem;
+    }
+    .lead, .about-text p { color: var(--muted); font-size: 1.03rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .stat {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--teal);
+    }
+    .stat-label { color: var(--muted); font-size: .9rem; }
+
+    .expertise-grid, .projects-grid, .contact-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+    .expertise-grid {
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }
+    .card, .project-card, .contact-card, .cta-box {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+    .card h3, .project-card h3, .contact-card h3 {
+      margin: .45rem 0 .6rem;
+      font-size: 1.3rem;
+    }
+    .card p, .project-card p, .contact-card p { color: var(--muted); margin: 0; }
+    .card ul, .project-card ul { padding-left: 1.2rem; color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 1.1rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 1rem;
+    }
+    .timeline-marker {
+      width: 16px;
+      height: 16px;
+      margin-top: .5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--cyan));
+    }
+    .timeline-content {
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .timeline-header h3 { margin: 0; }
+    .timeline-date { color: var(--teal); font-size: .85rem; font-weight: 700; }
+    .company { color: var(--muted); font-weight: 600; margin: .2rem 0 .5rem; }
+    .timeline-content p { margin: 0; color: var(--muted); }
+
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: .8rem;
+      margin-bottom: .7rem;
+    }
+    .project-tag {
+      display: inline-block;
+      padding: .32rem .6rem;
+      border-radius: 999px;
+      background: rgba(20,184,166,.12);
+      color: var(--teal);
+      font-size: .64rem;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+    .tool-badge {
+      background: rgba(148,163,184,.08);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 999px;
+      padding: .34rem .62rem;
+      font-size: .72rem;
+    }
+    .tools-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--teal);
+      background: rgba(20,184,166,.07);
+      border-radius: 0 1rem 1rem 0;
+      color: var(--muted);
+    }
+
+    .cta-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-box h3 { margin: 0 0 .5rem; }
+    .cta-box p { margin: 0; color: var(--muted); }
+
+    .contact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .contact-card a { color: var(--teal); word-break: break-word; }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--soft);
+    }
+
+    .resume-download { margin-top: 1rem; }
+
+    #resume-pdf {
+      background: #fff;
+      color: #0b1220;
+      border-radius: 20px;
+      padding: 1.25in .8in;
+      max-width: 8.5in;
+      margin: 0 auto;
+      box-shadow: 0 18px 45px rgba(0,0,0,.18);
+    }
+    .resume-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 2px solid rgba(11,18,32,.15);
+      padding-bottom: .7rem;
+      margin-bottom: .8rem;
+    }
+    .resume-name {
+      margin: 0;
+      font-size: 2.25rem;
+      letter-spacing: -.05em;
+    }
+    .resume-role {
+      margin: .2rem 0 0;
+      font-size: .96rem;
+      color: #334155;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .resume-contact {
+      font-size: .8rem;
+      line-height: 1.7;
+      text-align: right;
+      color: #334155;
+    }
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: .9in 0.6in;
+    }
+    .resume-section h3 {
+      margin: 0 0 .45rem;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #0f172a;
+      border-bottom: 1px solid rgba(11,18,32,.15);
+      padding-bottom: .18rem;
+    }
+    .resume-section p, .resume-section li {
+      font-size: .85rem;
+      line-height: 1.5;
+      color: #1f2937;
+    }
+    .resume-section ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .resume-job {
+      margin-bottom: 0.7rem;
+    }
+    .resume-job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: .6rem;
+      margin-bottom: .15rem;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+    .resume-company { color: #334155; }
+    .resume-date { color: #0f172a; }
+    .small-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      padding: 0;
+      list-style: none;
+      margin-top: .4rem;
+    }
+    .small-list li {
+      background: rgba(15,23,42,.06);
+      border: 1px solid rgba(15,23,42,.12);
+      padding: .18rem .42rem;
+      border-radius: 999px;
+      font-size: .7rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content, .about-grid, .resume-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: .6rem;
+      }
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .resume-contact { text-align: left; }
+      #resume-pdf {
+        padding: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar"><div class="nav-container"><div class="nav-logo"><a href="#home">Hazel Canlas</a></div><ul class="nav-menu"><li><a class="nav-link" href="#about">About</a></li><li><a class="nav-link" href="#expertise">Expertise</a></li><li><a class="nav-link" href="#experience">Experience</a></li><li><a class="nav-link" href="#projects">Projects</a></li><li><a class="nav-link" href="#contact">Contact</a></li></ul></div></nav>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><a href="#home">Hazel Canlas</a></div>
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#expertise">Expertise</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main>
-    <section id="home" class="hero"><div class="container hero-content"><div>
-      <div class="eyebrow">Sales operations • customer experience • workflow optimization</div>
-      <h1>Clear systems.<br>Consistent execution.</h1>
-      <p class="hero-description">I help service and growth-focused businesses improve operations, customer communication, dispatch coordination, and workflow consistency through organized systems and dependable execution.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#projects">View work</a>
-        <a class="btn btn-secondary" href="Hazel_Canlas_Resume.docx" download>Download resume</a>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div>
+          <div class="eyebrow">Sales operations • customer experience • workflow optimization</div>
+          <h1>Clear systems.<br>Consistent execution.</h1>
+          <p class="hero-description">I help service and growth-focused businesses improve operations, customer communication, dispatch coordination, and workflow consistency through organized systems and dependable execution.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View work</a>
+            <button class="btn btn-secondary" id="downloadResumeBtn" type="button">Download PDF resume</button>
+          </div>
+          <div class="roles">
+            <span class="role-pill">Sales Operations</span>
+            <span class="role-pill">Dispatch Coordination</span>
+            <span class="role-pill">Customer Experience</span>
+            <span class="role-pill">Vendor Coordination</span>
+            <span class="role-pill">Workflow Optimization</span>
+            <span class="role-pill">Executive Support</span>
+          </div>
+        </div>
+        <div class="avatar-box"><img src="profile.jpg" alt="Hazel Canlas"></div>
       </div>
-      <div class="roles">
-        <span class="role-pill">Sales Operations</span>
-        <span class="role-pill">Dispatch Coordination</span>
-        <span class="role-pill">Customer Experience</span>
-        <span class="role-pill">Vendor Coordination</span>
-        <span class="role-pill">Workflow Optimization</span>
-        <span class="role-pill">Executive Support</span>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Operations-minded and customer-focused.</h2>
+          <p>I’m a sales and operations professional with a strong track record in customer engagement, scheduling, workflow improvement, and operational execution. I bring structure, clarity, and follow-through to fast-moving teams serving customers every day.</p>
+          <p>My experience spans dispatch coordination, sales support, customer communication, vendor documentation, and service operations — allowing me to support both daily execution and long-term business efficiency.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years of experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15k+</div>
+            <div class="stat-label">Customer touchpoints</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Teams supported</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">3.5+</div>
+            <div class="stat-label">Years in service ops</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="avatar-box"><img src="profile.jpg" alt="Hazel Canlas"></div></div></section>
+    </section>
 
-    <section id="about" class="section"><div class="container about-grid"><div class="about-text"><h2 class="section-title">Operations-minded and customer-focused.</h2><p>I’m a sales and operations professional with a strong track record in customer engagement, scheduling, workflow improvement, and operational execution. I bring structure, clarity, and follow-through to fast-moving teams serving customers every day.</p><p>My experience spans dispatch coordination, sales support, customer communication, vendor documentation, and service operations—allowing me to support both daily execution and long-term business efficiency.</p></div><div class="stats"><div class="stat"><div class="stat-number">7+</div><div class="stat-label">Years of experience</div></div><div class="stat"><div class="stat-number">150+</div><div class="stat-label">Customer touchpoints</div></div><div class="stat"><div class="stat-number">10+</div><div class="stat-label">Teams supported</div></div><div class="stat"><div class="stat-number">3.5+</div><div class="stat-label">Years in service ops</div></div></div></div></section>
+    <section id="expertise" class="section">
+      <div class="container">
+        <h2 class="section-title">Core expertise</h2>
+        <div class="expertise-grid">
+          <article class="card">
+            <div>⚙️</div>
+            <h3>Sales Operations</h3>
+            <p>Back-office support for sales follow-up, customer communication, and account coordination.</p>
+          </article>
+          <article class="card">
+            <div>📍</div>
+            <h3>Dispatch Coordination</h3>
+            <p>Scheduling, route alignment, field communication, and service execution support.</p>
+          </article>
+          <article class="card">
+            <div>💬</div>
+            <h3>Customer Experience</h3>
+            <p>Professional communication across email, SMS, phone, and customer-facing service workflows.</p>
+          </article>
+          <article class="card">
+            <div>📝</div>
+            <h3>SOP & Process Improvement</h3>
+            <p>Documentation, checklists, onboarding references, quality controls, and workflow consistency.</p>
+          </article>
+          <article class="card">
+            <div>🔎</div>
+            <h3>Vendor & Compliance Support</h3>
+            <p>Vendor documentation, insurance coordination, and sub-contractor file management.</p>
+          </article>
+          <article class="card">
+            <div>🧰</div>
+            <h3>Digital Workflow Tools</h3>
+            <p>ServiceM8, Service Autopilot, Salesforce, DocuSign, Google Workspace, Canva, Slack, Microsoft Copilot, Notion, and more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <section id="expertise" class="section"><div class="container"><h2 class="section-title">Core expertise</h2><div class="expertise-grid"><article class="card"><div>⚙️</div><h3>Sales Operations</h3><p>Back-office support for sales follow-up, customer communication, and account coordination.</p></article><article class="card"><div>📦</div><h3>Dispatch Coordination</h3><p>Scheduling, route alignment, field communication, and service execution support.</p></article><article class="card"><div>💬</div><h3>Customer Experience</h3><p>Professional communication across email, SMS, phone, and customer-facing service workflows.</p></article><article class="card"><div>📋</div><h3>SOP & Process Improvement</h3><p>Documentation, checklists, onboarding, quality controls, and workflow consistency.</p></article><article class="card"><div>🧭</div><h3>Vendor & Compliance Support</h3><p>Vendor documentation, insurance coordination, and subcontractor file management.</p></article><article class="card"><div>📣</div><h3>Digital Workflow Tools</h3><p>ServiceM8, Service Autopilot, Salesforce, Docket, Slack, ArboStar, Google Workspace, Canva, Wix, Microsoft Copilot, NotebookLM, Claude AI, and Notion.</p></article></div></div></section>
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Professional experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Dispatch & Senior Operations Coordinator</h3>
+                <span class="timeline-date">Jul 2024 – Aug 2026</span>
+              </div>
+              <div class="company">Viking Tree Experts Inc. & Viking Washers</div>
+              <p>Managed daily dispatch schedules, technician coordination, customer updates, and service follow-up for fast-paced home service operations.</p>
+            </div>
+          </article>
 
-    <section id="experience" class="section"><div class="container"><h2 class="section-title">Professional experience</h2><div class="timeline"><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Dispatch & Senior Operations Coordinator</h3><span class="timeline-date">Jul 2024 – Aug 2026</span></div><div class="company">Viking Tree Experts Inc. &amp; Viking Washers</div><p>Managed daily dispatch schedules, technician coordination, customer updates, and service follow-up for fast-paced home service operations.</p></div></article><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Account Specialist</h3><span class="timeline-date">Jan 2023 – Jul 2024</span></div><div class="company">Viking Tree Experts Inc.</div><p>Coordinated customer accounts, supported operational needs, and helped maintain consistent service delivery across recurring client touchpoints.</p></div></article><article class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3>Travel Consultant</h3><span class="timeline-date">Jan 2021 – Jan 2023</span></div><div class="company">dnata Travel Inc. / Emirates Group</div><p>Handled high-volume customer inquiries, travel coordination, and detail-sensitive service conversations in a fast-paced client environment.</p></div></article></div></div></section>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Account Specialist</h3>
+                <span class="timeline-date">Jan 2023 – Jul 2024</span>
+              </div>
+              <div class="company">Viking Tree Experts Inc.</div>
+              <p>Coordinated customer accounts, supported operational needs, and helped maintain consistent service delivery across recurring client touchpoints.</p>
+            </div>
+          </article>
 
-    <section id="projects" class="section"><div class="container"><h2 class="section-title">Notable projects</h2><p class="lead">Selected examples of how I use tools, documentation, and communication to improve operational flow and customer experience.</p><div class="projects-grid">
-      <article class="project-card"><div class="project-header"><h3>Operations SOP & Sales Guide System</h3><span class="project-tag">Enablement</span></div><p>Created SOPs, onboarding references, and sales guidance to support consistent execution and stronger team communication.</p><div class="tool-list"><span class="tool-badge">Notion</span><span class="tool-badge">NotebookLM</span><span class="tool-badge">Claude AI</span><span class="tool-badge">Microsoft Copilot</span></div></article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Travel Consultant</h3>
+                <span class="timeline-date">Jan 2021 – Jan 2023</span>
+              </div>
+              <div class="company">dnata Travel Inc. / Emirates Group</div>
+              <p>Handled high-volume customer inquiries, travel coordination, and detail-sensitive service conversations in a fast-paced client environment.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <article class="project-card"><div class="project-header"><h3>Local Visibility & Web Presence</h3><span class="project-tag">Growth</span></div><p>Maintained customer-facing updates, local business visibility, and marketing content to support trust and digital presence.</p><div class="tool-list"><span class="tool-badge">Google Business Profile</span><span class="tool-badge">Wix</span><span class="tool-badge">Canva</span><span class="tool-badge">Slack</span></div></article>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Notable projects</h2>
+        <p class="lead">Selected examples of how I use tools, documentation, and communication to improve operational flow and customer experience.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Operations SOP & Sales Guide System</h3>
+              <span class="project-tag">Enablement</span>
+            </div>
+            <p>Created SOPs, onboarding references, and sales guidance to support consistent execution and stronger team communication.</p>
+            <div class="tool-list">
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">NoteboolLM</span>
+              <span class="tool-badge">Claude AI</span>
+              <span class="tool-badge">Microsoft Copilot</span>
+            </div>
+          </article>
 
-      <article class="project-card"><div class="project-header"><h3>CRM & High-Volume Queue Management</h3><span class="project-tag">CRM</span></div><p>Prioritized and cleared high-volume email queues, tracked follow-up activity, and kept customer communication moving efficiently.</p><div class="tool-list"><span class="tool-badge">Salesforce</span><span class="tool-badge">Email queues</span><span class="tool-badge">Slack</span><span class="tool-badge">Microsoft Copilot</span></div></article>
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Local Visibility & Web Presence</h3>
+              <span class="project-tag">Growth</span>
+            </div>
+            <p>Maintained customer-facing updates, local business visibility, and marketing content to support trust and digital presence.</p>
+            <div class="tool-list">
+              <span class="tool-badge">Google Business Profile</span>
+              <span class="tool-badge">Wix</span>
+              <span class="tool-badge">Canva</span>
+              <span class="tool-badge">Slack</span>
+            </div>
+          </article>
 
-      <article class="project-card"><div class="project-header"><h3>Dispatch Workflow Optimization</h3><span class="project-tag">Operations</span></div><p>Improved scheduling, technician coordination, and service updates across recurring service jobs to streamline daily execution.</p><div class="tool-list"><span class="tool-badge">ServiceM8</span><span class="tool-badge">Service Autopilot</span><span class="tool-badge">Fleetio</span><span class="tool-badge">Samsara</span><span class="tool-badge">Docket</span></div></article>
+          <article class="project-card">
+            <div class="project-header">
+              <h3>CRM & High-Volume Queue Management</h3>
+              <span class="project-tag">CRM</span>
+            </div>
+            <p>Prioritized and cleared high-volume email queues, tracked follow-up activity, and kept customer communication moving efficiently.</p>
+            <div class="tool-list">
+              <span class="tool-badge">Salesforce</span>
+              <span class="tool-badge">Email queues</span>
+              <span class="tool-badge">Slack</span>
+              <span class="tool-badge">Microsoft Copilot</span>
+            </div>
+          </article>
 
-      <article class="project-card"><div class="project-header"><h3>Vendor & Compliance Documentation</h3><span class="project-tag">Compliance</span></div><p>Compiled vendor files, tracked insurance records, and coordinated documentation for subcontractor onboarding and compliance readiness.</p><div class="tool-list"><span class="tool-badge">ArboStar</span><span class="tool-badge">Vendor management</span><span class="tool-badge">Insurance coordination</span><span class="tool-badge">Document compilation</span></div></article>
-    </div>
-    <p class="tools-note"><strong>Operating style:</strong> structured, proactive, and detail-oriented. I work best in environments where communication, documentation, and follow-through are central to performance.</p>
-    </div></section>
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Dispatch Workflow Optimization</h3>
+              <span class="project-tag">Operations</span>
+            </div>
+            <p>Improved scheduling, technician coordination, and service updates across recurring service jobs to streamline daily execution.</p>
+            <div class="tool-list">
+              <span class="tool-badge">ServiceM8</span>
+              <span class="tool-badge">Service Autopilot</span>
+              <span class="tool-badge">Fleetio</span>
+              <span class="tool-badge">Samsara</span>
+            </div>
+          </article>
 
-    <section class="section"><div class="container"><div class="cta-box"><div><h3>Open to roles in sales operations, dispatch, customer success, and administrative operations.</h3><p>Helping service and growth-focused teams create clearer systems, stronger communication, and more reliable execution.</p></div><div class="cta"><a class="btn btn-primary" href="#contact">Let’s connect</a></div></div></div></section>
+          <article class="project-card">
+            <div class="project-header">
+              <h3>Vendor & Compliance Documentation</h3>
+              <span class="project-tag">Compliance</span>
+            </div>
+            <p>Compiled vendor files, tracked insurance records, and coordinated documentation for subcontractor onboarding and compliance readiness.</p>
+            <div class="tool-list">
+              <span class="tool-badge">ArboStar</span>
+              <span class="tool-badge">Vendor management</span>
+              <span class="tool-badge">Insurance coordination</span>
+              <span class="tool-badge">Document compilation</span>
+            </div>
+          </article>
+        </div>
+        <p class="tools-note"><strong>Operating style:</strong> structured, proactive, and detail-oriented. I work best in environments where communication, documentation, and follow-through are central to performance.</p>
+      </div>
+    </section>
 
-    <section id="contact" class="section"><div class="container"><h2 class="section-title">Let’s connect</h2><div class="contact-grid"><article class="contact-card"><h3>✉ Email</h3><a href="mailto:canlashazel4@gmail.com">canlashazel4@gmail.com</a></article><article class="contact-card"><h3>in LinkedIn</h3><a href="https://www.linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener">Connect with me</a></article><article class="contact-card"><h3>☎ Phone</h3><a href="tel:+6395556450307">+63 955 645 0307</a></article></div></div></section>
+    <section class="section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h3>Open to roles in sales operations, dispatch, customer success, and administrative operations.</h3>
+            <p>Helping service and growth-focused teams create clearer systems, stronger communication, and more reliable execution.</p>
+          </div>
+          <div class="resume-download">
+            <button class="btn btn-primary" id="downloadResumeInlineBtn" type="button">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Let’s connect</h2>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>✉ Email</h3>
+            <a href="mailto:canlashazel4@gmail.com">canlashazel4@gmail.com</a>
+          </article>
+          <article class="contact-card">
+            <h3>in LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/hazel-canlas-20bb25263" target="_blank" rel="noopener">Connect with me</a>
+          </article>
+          <article class="contact-card">
+            <h3>📞 Phone</h3>
+            <a href="tel:+6395556450307">+63 955 645 0307</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Resume PDF export area" hidden>
+      <div class="container">
+        <div id="resume-pdf">
+          <div class="resume-head">
+            <div>
+              <h2 class="resume-name">Hazel Canlas</h2>
+              <p class="resume-role">Sales Operations • Customer Experience • Workflow Optimization</p>
+            </div>
+            <div class="resume-contact">
+              canlashazel4@gmail.com<br>
+              +63 955 645 0307<br>
+              linkedin.com/in/hazel-canlas-20bb25263
+            </div>
+          </div>
+
+          <div class="resume-grid">
+            <div class="resume-section">
+              <h3>Summary</h3>
+              <p>Operations-minded and customer-focused professional with 7+ years of experience supporting service teams, customer engagement, dispatch coordination, and workflow improvement. Skilled in documentation, communication, and operational consistency across fast-moving business environments.</p>
+
+              <h3>Professional Experience</h3>
+              <div class="resume-job">
+                <div class="resume-job-header">
+                  <span>Dispatch & Senior Operations Coordinator</span>
+                  <span class="resume-date">2024–2026</span>
+                </div>
+                <div class="resume-company">Viking Tree Experts Inc. & Viking Washers</div>
+                <p>Managed dispatch schedules, technician coordination, customer updates, and service follow-up for home service operations.</p>
+              </div>
+
+              <div class="resume-job">
+                <div class="resume-job-header">
+                  <span>Account Specialist</span>
+                  <span class="resume-date">2023–2024</span>
+                </div>
+                <div class="resume-company">Viking Tree Experts Inc.</div>
+                <p>Coordinated customer accounts, supported operational needs, and maintained consistent service delivery across recurring touchpoints.</p>
+              </div>
+
+              <div class="resume-job">
+                <div class="resume-job-header">
+                  <span>Travel Consultant</span>
+                  <span class="resume-date">2021–2023</span>
+                </div>
+                <div class="resume-company">dnata Travel Inc. / Emirates Group</div>
+                <p>Handled high-volume customer inquiries, travel coordination, and detail-sensitive service conversations in a fast-paced environment.</p>
+              </div>
+            </div>
+
+            <div class="resume-section">
+              <h3>Core Skills</h3>
+              <ul>
+                <li>Sales operations support</li>
+                <li>Dispatch coordination</li>
+                <li>Customer experience</li>
+                <li>Workflow optimization</li>
+                <li>Vendor coordination</li>
+                <li>Documentation and SOPs</li>
+                <li>Service operations</li>
+              </ul>
+
+              <h3>Tools</h3>
+              <ul class="small-list">
+                <li>ServiceM8</li>
+                <li>Service Autopilot</li>
+                <li>Salesforce</li>
+                <li>Google Workspace</li>
+                <li>Canva</li>
+                <li>Slack</li>
+                <li>Notion</li>
+                <li>Microsoft Copilot</li>
+              </ul>
+
+              <h3>Open to Roles</h3>
+              <p>Sales operations, dispatch, customer success, and administrative operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">© 2026 Hazel Canlas. All rights reserved.</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function downloadResumePDF() {
+      const element = document.getElementById('resume-pdf');
+      const opt = {
+        margin: [0.35, 0.35, 0.35, 0.35],
+        filename: 'Hazel_Canlas_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, backgroundColor: '#ffffff' },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+
+    document.getElementById('downloadResumeBtn').addEventListener('click', downloadResumePDF);
+    document.getElementById('downloadResumeInlineBtn').addEventListener('click', downloadResumePDF);
+  </script>
 </body>
 </html>
