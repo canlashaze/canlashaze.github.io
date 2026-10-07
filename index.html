@@ -297,99 +297,8 @@
       color: var(--soft);
     }
 
-    .resume-download { margin-top: 1rem; }
-
-    #resume-pdf {
-      background: #fff;
-      color: #0b1220;
-      border-radius: 20px;
-      padding: 1.25in .8in;
-      max-width: 8.5in;
-      margin: 0 auto;
-      box-shadow: 0 18px 45px rgba(0,0,0,.18);
-    }
-    .resume-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      border-bottom: 2px solid rgba(11,18,32,.15);
-      padding-bottom: .7rem;
-      margin-bottom: .8rem;
-    }
-    .resume-name {
-      margin: 0;
-      font-size: 2.25rem;
-      letter-spacing: -.05em;
-    }
-    .resume-role {
-      margin: .2rem 0 0;
-      font-size: .96rem;
-      color: #334155;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    .resume-contact {
-      font-size: .8rem;
-      line-height: 1.7;
-      text-align: right;
-      color: #334155;
-    }
-    .resume-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: .9in 0.6in;
-    }
-    .resume-section h3 {
-      margin: 0 0 .45rem;
-      font-size: .9rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #0f172a;
-      border-bottom: 1px solid rgba(11,18,32,.15);
-      padding-bottom: .18rem;
-    }
-    .resume-section p, .resume-section li {
-      font-size: .85rem;
-      line-height: 1.5;
-      color: #1f2937;
-    }
-    .resume-section ul {
-      margin: 0;
-      padding-left: 1.1rem;
-    }
-    .resume-job {
-      margin-bottom: 0.7rem;
-    }
-    .resume-job-header {
-      display: flex;
-      justify-content: space-between;
-      gap: .6rem;
-      margin-bottom: .15rem;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-    .resume-company { color: #334155; }
-    .resume-date { color: #0f172a; }
-    .small-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-      padding: 0;
-      list-style: none;
-      margin-top: .4rem;
-    }
-    .small-list li {
-      background: rgba(15,23,42,.06);
-      border: 1px solid rgba(15,23,42,.12);
-      padding: .18rem .42rem;
-      border-radius: 999px;
-      font-size: .7rem;
-    }
-
     @media (max-width: 800px) {
-      .hero-content, .about-grid, .resume-grid {
+      .hero-content, .about-grid {
         grid-template-columns: 1fr;
       }
       .nav-container {
@@ -399,10 +308,6 @@
       .nav-menu {
         flex-wrap: wrap;
         justify-content: center;
-      }
-      .resume-contact { text-align: left; }
-      #resume-pdf {
-        padding: 1.1rem;
       }
     }
   </style>
@@ -430,7 +335,7 @@
           <p class="hero-description">I help service and growth-focused businesses improve operations, customer communication, dispatch coordination, and workflow consistency through organized systems and dependable execution.</p>
           <div class="cta">
             <a class="btn btn-primary" href="#projects">View work</a>
-            <button class="btn btn-secondary" id="downloadResumeBtn" type="button">Download PDF resume</button>
+            <a class="btn btn-secondary" href="Hazel_Canlas_Resume.pdf" download>Download PDF resume</a>
           </div>
           <div class="roles">
             <span class="role-pill">Sales Operations</span>
@@ -449,7 +354,7 @@
       <div class="container about-grid">
         <div class="about-text">
           <h2 class="section-title">Operations-minded and customer-focused.</h2>
-          <p>I’m a sales and operations professional with a strong track record in customer engagement, scheduling, workflow improvement, and operational execution. I bring structure, clarity, and follow-through to fast-moving teams serving customers every day.</p>
+          <p>I'm a sales and operations professional with a strong track record in customer engagement, scheduling, workflow improvement, and operational execution. I bring structure, clarity, and follow-through to fast-moving teams serving customers every day.</p>
           <p>My experience spans dispatch coordination, sales support, customer communication, vendor documentation, and service operations — allowing me to support both daily execution and long-term business efficiency.</p>
         </div>
         <div class="stats">
@@ -495,7 +400,7 @@
           <article class="card">
             <div>📝</div>
             <h3>SOP & Process Improvement</h3>
-            <p>Documentation, checklists, onboarding references, quality controls, and workflow consistency.</p>
+            <p>Documentation, checklists, onboarding, quality controls, and workflow consistency.</p>
           </article>
           <article class="card">
             <div>🔎</div>
@@ -567,7 +472,7 @@
             <p>Created SOPs, onboarding references, and sales guidance to support consistent execution and stronger team communication.</p>
             <div class="tool-list">
               <span class="tool-badge">Notion</span>
-              <span class="tool-badge">NoteboolLM</span>
+              <span class="tool-badge">NotebookLM</span>
               <span class="tool-badge">Claude AI</span>
               <span class="tool-badge">Microsoft Copilot</span>
             </div>
@@ -640,8 +545,8 @@
             <h3>Open to roles in sales operations, dispatch, customer success, and administrative operations.</h3>
             <p>Helping service and growth-focused teams create clearer systems, stronger communication, and more reliable execution.</p>
           </div>
-          <div class="resume-download">
-            <button class="btn btn-primary" id="downloadResumeInlineBtn" type="button">Download PDF</button>
+          <div>
+            <a class="btn btn-primary" href="Hazel_Canlas_Resume.pdf" download>Download PDF</a>
           </div>
         </div>
       </div>
@@ -649,7 +554,7 @@
 
     <section id="contact" class="section">
       <div class="container">
-        <h2 class="section-title">Let’s connect</h2>
+        <h2 class="section-title">Let's connect</h2>
         <div class="contact-grid">
           <article class="contact-card">
             <h3>✉ Email</h3>
@@ -666,108 +571,8 @@
         </div>
       </div>
     </section>
-
-    <section class="section" aria-label="Resume PDF export area" hidden>
-      <div class="container">
-        <div id="resume-pdf">
-          <div class="resume-head">
-            <div>
-              <h2 class="resume-name">Hazel Canlas</h2>
-              <p class="resume-role">Sales Operations • Customer Experience • Workflow Optimization</p>
-            </div>
-            <div class="resume-contact">
-              canlashazel4@gmail.com<br>
-              +63 955 645 0307<br>
-              linkedin.com/in/hazel-canlas-20bb25263
-            </div>
-          </div>
-
-          <div class="resume-grid">
-            <div class="resume-section">
-              <h3>Summary</h3>
-              <p>Operations-minded and customer-focused professional with 7+ years of experience supporting service teams, customer engagement, dispatch coordination, and workflow improvement. Skilled in documentation, communication, and operational consistency across fast-moving business environments.</p>
-
-              <h3>Professional Experience</h3>
-              <div class="resume-job">
-                <div class="resume-job-header">
-                  <span>Dispatch & Senior Operations Coordinator</span>
-                  <span class="resume-date">2024–2026</span>
-                </div>
-                <div class="resume-company">Viking Tree Experts Inc. & Viking Washers</div>
-                <p>Managed dispatch schedules, technician coordination, customer updates, and service follow-up for home service operations.</p>
-              </div>
-
-              <div class="resume-job">
-                <div class="resume-job-header">
-                  <span>Account Specialist</span>
-                  <span class="resume-date">2023–2024</span>
-                </div>
-                <div class="resume-company">Viking Tree Experts Inc.</div>
-                <p>Coordinated customer accounts, supported operational needs, and maintained consistent service delivery across recurring touchpoints.</p>
-              </div>
-
-              <div class="resume-job">
-                <div class="resume-job-header">
-                  <span>Travel Consultant</span>
-                  <span class="resume-date">2021–2023</span>
-                </div>
-                <div class="resume-company">dnata Travel Inc. / Emirates Group</div>
-                <p>Handled high-volume customer inquiries, travel coordination, and detail-sensitive service conversations in a fast-paced environment.</p>
-              </div>
-            </div>
-
-            <div class="resume-section">
-              <h3>Core Skills</h3>
-              <ul>
-                <li>Sales operations support</li>
-                <li>Dispatch coordination</li>
-                <li>Customer experience</li>
-                <li>Workflow optimization</li>
-                <li>Vendor coordination</li>
-                <li>Documentation and SOPs</li>
-                <li>Service operations</li>
-              </ul>
-
-              <h3>Tools</h3>
-              <ul class="small-list">
-                <li>ServiceM8</li>
-                <li>Service Autopilot</li>
-                <li>Salesforce</li>
-                <li>Google Workspace</li>
-                <li>Canva</li>
-                <li>Slack</li>
-                <li>Notion</li>
-                <li>Microsoft Copilot</li>
-              </ul>
-
-              <h3>Open to Roles</h3>
-              <p>Sales operations, dispatch, customer success, and administrative operations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">© 2026 Hazel Canlas. All rights reserved.</footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script>
-    function downloadResumePDF() {
-      const element = document.getElementById('resume-pdf');
-      const opt = {
-        margin: [0.35, 0.35, 0.35, 0.35],
-        filename: 'Hazel_Canlas_Resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, backgroundColor: '#ffffff' },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-
-      html2pdf().set(opt).from(element).save();
-    }
-
-    document.getElementById('downloadResumeBtn').addEventListener('click', downloadResumePDF);
-    document.getElementById('downloadResumeInlineBtn').addEventListener('click', downloadResumePDF);
-  </script>
 </body>
 </html>
